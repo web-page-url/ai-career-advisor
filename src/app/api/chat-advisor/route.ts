@@ -35,10 +35,26 @@ export async function POST(request: NextRequest) {
   }
 }
 
+interface StudentProfile {
+  education: string;
+  skills: string[];
+  interests: string[];
+  strengths: string[];
+  weaknesses: string[];
+  careerGoals: string;
+  experience: string;
+}
+
+interface ChatMessage {
+  role: 'user' | 'assistant';
+  content: string;
+  timestamp: number;
+}
+
 async function generateChatResponse(
-  message: string, 
-  studentProfile: any, 
-  conversationHistory: any[]
+  message: string,
+  studentProfile: StudentProfile | null,
+  conversationHistory: ChatMessage[]
 ): Promise<string> {
   const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
   
@@ -54,7 +70,7 @@ Student Profile Context:
 
   const conversationContext = conversationHistory?.length > 0 ? `
 Previous Conversation:
-${conversationHistory.slice(-3).map(msg => `${msg.sender}: ${msg.text}`).join('\n')}
+${conversationHistory.slice(-3).map(msg => `${msg.role}: ${msg.content}`).join('\n')}
 ` : '';
 
   const prompt = `You are an expert AI Career Advisor helping students and professionals with career guidance. 
@@ -83,7 +99,13 @@ Respond directly to their question:`;
   return response.text().trim();
 }
 
-function generateFallbackChatResponse(requestData: any): string {
+interface ChatRequestData {
+  message: string;
+  studentProfile?: StudentProfile;
+  conversationHistory?: ChatMessage[];
+}
+
+function generateFallbackChatResponse(requestData: ChatRequestData): string {
   const { message } = requestData;
   const input = message.toLowerCase();
   

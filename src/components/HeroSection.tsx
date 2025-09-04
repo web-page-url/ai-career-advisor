@@ -2,6 +2,7 @@
 
 import { motion, AnimatePresence } from 'framer-motion';
 import { useState, useEffect } from 'react';
+import Image from 'next/image';
 import { Rocket, Sparkles, Target, TrendingUp, ChevronLeft, ChevronRight } from 'lucide-react';
 
 const heroImages = [
@@ -121,14 +122,15 @@ export default function HeroSection() {
             exit={{ opacity: 0, scale: 0.9 }}
             transition={{ duration: 1.5, ease: "easeInOut" }}
           >
-            <img
+            <Image
               src={heroImages[currentImageIndex]}
               alt={`AI Career Advisor Showcase ${currentImageIndex + 1}`}
-              className="w-full h-full object-cover object-center"
-              onError={(e) => {
+              fill
+              className="object-cover object-center"
+              onError={() => {
                 console.error(`Failed to load image: ${heroImages[currentImageIndex]}`);
-                e.currentTarget.style.display = 'none';
               }}
+              priority={currentImageIndex === 0}
             />
             {/* Dark overlay for better text readability */}
             <div className="absolute inset-0 bg-gradient-to-br from-black/60 via-black/40 to-black/60" />

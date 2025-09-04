@@ -127,16 +127,6 @@ export const metadata: Metadata = {
     shortcut: [{ url: "/favicon.ico" }],
   },
   manifest: "/site.webmanifest",
-  viewport: {
-    width: "device-width",
-    initialScale: 1,
-    maximumScale: 5,
-  },
-  themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#6366f1" },
-    { media: "(prefers-color-scheme: dark)", color: "#0a0a0a" }
-  ],
-  colorScheme: "dark light",
   other: {
     "msapplication-TileColor": "#0a0a0a",
     "msapplication-config": "/browserconfig.xml",

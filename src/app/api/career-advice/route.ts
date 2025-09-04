@@ -116,8 +116,28 @@ Return only the JSON array, no explanations or markdown.`;
       throw new Error('Invalid response format');
     }
 
+    // Define the recommendation type
+    interface AIRecommendation {
+      title?: string;
+      match?: number;
+      description?: string;
+      whySuitable?: string;
+      keySkills?: string[];
+      roadmap?: Array<{
+        phase: string;
+        duration: string;
+        tasks: string[];
+        skills: string[];
+      }>;
+      marketInsights?: {
+        demand: string;
+        salaryRange: string;
+        growth: string;
+      };
+    }
+
     // Ensure each recommendation has required fields
-    const validatedRecommendations = recommendations.map((rec: any) => ({
+    const validatedRecommendations = recommendations.map((rec: AIRecommendation) => ({
       title: rec.title || 'Career Opportunity',
       match: Math.min(Math.max(rec.match || 75, 70), 95),
       description: rec.description || 'Exciting career opportunity',
