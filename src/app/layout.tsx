@@ -151,6 +151,30 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <StructuredData metadata={metadata} />
+
+        {/* Force favicon override - must come before other meta tags */}
+        <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="shortcut icon" href="/favicon.ico" />
+
+        {/* Additional favicon sizes */}
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+        <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png" />
+        <link rel="icon" type="image/png" sizes="64x64" href="/favicon-64x64.png" />
+        <link rel="icon" type="image/png" sizes="128x128" href="/favicon-128x128.png" />
+        <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192x192.png" />
+        <link rel="icon" type="image/png" sizes="512x512" href="/favicon-512x512.png" />
+
+        {/* Apple touch icon */}
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+
+        {/* Android Chrome icons */}
+        <link rel="icon" type="image/png" sizes="192x192" href="/android-chrome-192x192.png" />
+        <link rel="icon" type="image/png" sizes="512x512" href="/android-chrome-512x512.png" />
+
+        {/* Windows tile */}
+        <meta name="msapplication-TileImage" content="/favicon-128x128.png" />
+
         {/* Additional Social Media Meta Tags for better sharing */}
         <meta property="og:image" content="https://ai-career-advisor.vercel.app/ai-advisor-4.0.png" />
         <meta property="og:image:width" content="1200" />
