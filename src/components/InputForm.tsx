@@ -70,7 +70,7 @@ const InputForm: React.FC<InputFormProps> = ({ onSubmit, isLoading }) => {
     switch (currentStep) {
       case 0:
         return (
-          <div className="space-y-6">
+          <div className="space-y-4 md:space-y-6">
             <div>
               <label className="block text-sm font-medium text-gray-300 mb-2">
                 Current Education Level
@@ -103,7 +103,7 @@ const InputForm: React.FC<InputFormProps> = ({ onSubmit, isLoading }) => {
         );
       case 1:
         return (
-          <div className="space-y-6">
+          <div className="space-y-4 md:space-y-6">
             <div>
               <label className="block text-sm font-medium text-gray-300 mb-2">
                 Your Skills
@@ -121,7 +121,7 @@ const InputForm: React.FC<InputFormProps> = ({ onSubmit, isLoading }) => {
         );
       case 2:
         return (
-          <div className="space-y-6">
+          <div className="space-y-4 md:space-y-6">
             <div>
               <label className="block text-sm font-medium text-gray-300 mb-2">
                 Your Interests & Passions
@@ -139,7 +139,7 @@ const InputForm: React.FC<InputFormProps> = ({ onSubmit, isLoading }) => {
         );
       case 3:
         return (
-          <div className="space-y-6">
+          <div className="space-y-4 md:space-y-6">
             <div>
               <label className="block text-sm font-medium text-gray-300 mb-2">
                 Your Strengths
@@ -164,7 +164,7 @@ const InputForm: React.FC<InputFormProps> = ({ onSubmit, isLoading }) => {
         );
       case 4:
         return (
-          <div className="space-y-6">
+          <div className="space-y-4 md:space-y-6">
             <div>
               <label className="block text-sm font-medium text-gray-300 mb-2">
                 Career Goals & Aspirations
@@ -192,41 +192,44 @@ const InputForm: React.FC<InputFormProps> = ({ onSubmit, isLoading }) => {
           transition={{ duration: 0.8 }}
           className="text-center mb-12"
         >
-          <h2 className="text-4xl font-bold gradient-text mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold gradient-text mb-3 md:mb-4">
             Tell Us About Yourself
           </h2>
-          <p className="text-gray-300 text-lg">
+          <p className="text-gray-300 text-base md:text-lg leading-relaxed px-4 md:px-0">
             Help us understand your background to provide personalized career guidance
           </p>
         </motion.div>
 
         <div className="mb-8">
-          <div className="flex justify-between items-center mb-4">
+          <div className="flex justify-center items-center mb-6 px-4">
             {steps.map((step, index) => {
               const Icon = step.icon;
               return (
                 <motion.div
                   key={index}
-                  className={`flex items-center ${
-                    index <= currentStep ? 'text-purple-400' : 'text-gray-500'
-                  }`}
+                  className="flex items-center flex-shrink-0"
                   initial={{ scale: 0 }}
                   animate={{ scale: 1 }}
                   transition={{ delay: index * 0.1 }}
                 >
+                  {/* Step Icon */}
                   <div
-                    className={`w-10 h-10 rounded-full flex items-center justify-center border-2 ${
+                    className={`w-10 h-10 md:w-12 md:h-12 rounded-full flex items-center justify-center border-2 transition-all duration-300 ${
                       index <= currentStep
-                        ? 'border-purple-400 bg-purple-400/20'
-                        : 'border-gray-500'
+                        ? 'border-purple-400 bg-purple-400/20 text-purple-400'
+                        : 'border-gray-500 text-gray-500'
                     }`}
                   >
-                    <Icon className="w-5 h-5" />
+                    <Icon className="w-4 h-4 md:w-5 md:h-5" />
                   </div>
+
+                  {/* Connecting Line */}
                   {index < steps.length - 1 && (
                     <div
-                      className={`w-16 h-0.5 ml-2 ${
-                        index < currentStep ? 'bg-purple-400' : 'bg-gray-500'
+                      className={`h-0.5 mx-2 md:mx-4 transition-all duration-300 ${
+                        index < currentStep
+                          ? 'bg-purple-400 w-8 md:w-16'
+                          : 'bg-gray-500 w-8 md:w-16'
                       }`}
                     />
                   )}
@@ -243,7 +246,7 @@ const InputForm: React.FC<InputFormProps> = ({ onSubmit, isLoading }) => {
 
         <motion.form
           onSubmit={handleSubmit}
-          className="glass p-8 rounded-2xl"
+          className="glass p-4 md:p-8 rounded-2xl mx-4 md:mx-0"
           key={currentStep}
           initial={{ opacity: 0, x: 50 }}
           animate={{ opacity: 1, x: 0 }}
@@ -261,12 +264,12 @@ const InputForm: React.FC<InputFormProps> = ({ onSubmit, isLoading }) => {
             </motion.div>
           </AnimatePresence>
 
-          <div className="flex justify-between items-center mt-8">
+          <div className="flex flex-col sm:flex-row justify-between items-center mt-6 md:mt-8 gap-4">
             <motion.button
               type="button"
               onClick={prevStep}
               disabled={currentStep === 0}
-              className={`flex items-center px-6 py-3 rounded-xl font-medium transition-all ${
+              className={`flex items-center px-4 md:px-6 py-3 rounded-xl font-medium transition-all text-sm md:text-base ${
                 currentStep === 0
                   ? 'text-gray-500 cursor-not-allowed'
                   : 'text-purple-300 hover:text-white hover:bg-purple-500/20'
@@ -283,7 +286,7 @@ const InputForm: React.FC<InputFormProps> = ({ onSubmit, isLoading }) => {
                 type="button"
                 onClick={nextStep}
                 disabled={!isStepValid()}
-                className={`flex items-center px-6 py-3 rounded-xl font-medium transition-all ${
+                className={`flex items-center px-4 md:px-6 py-3 rounded-xl font-medium transition-all text-sm md:text-base ${
                   isStepValid()
                     ? 'bg-gradient-to-r from-purple-600 to-cyan-600 text-white neon-glow'
                     : 'bg-gray-600 text-gray-400 cursor-not-allowed'
@@ -298,7 +301,7 @@ const InputForm: React.FC<InputFormProps> = ({ onSubmit, isLoading }) => {
               <motion.button
                 type="submit"
                 disabled={!isStepValid() || isLoading}
-                className={`flex items-center px-8 py-3 rounded-xl font-medium transition-all ${
+                className={`flex items-center px-6 md:px-8 py-3 rounded-xl font-medium transition-all text-sm md:text-base ${
                   isStepValid() && !isLoading
                     ? 'bg-gradient-to-r from-purple-600 to-cyan-600 text-white neon-glow'
                     : 'bg-gray-600 text-gray-400 cursor-not-allowed'
