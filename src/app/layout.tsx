@@ -59,18 +59,20 @@ export const metadata: Metadata = {
     siteName: "AI Career Advisor",
     images: [
       {
-        url: "/ai-advisor-4.0.png",
+        url: "https://ai-career-advisor.vercel.app/ai-advisor-4.0.png",
         width: 1200,
         height: 630,
         alt: "AI Career Advisor - Advanced AI-powered career guidance platform",
-        type: "image/png"
+        type: "image/png",
+        secureUrl: "https://ai-career-advisor.vercel.app/ai-advisor-4.0.png"
       },
       {
-        url: "/android-chrome-512x512.png",
+        url: "https://ai-career-advisor.vercel.app/android-chrome-512x512.png",
         width: 512,
         height: 512,
         alt: "AI Career Advisor Logo",
-        type: "image/png"
+        type: "image/png",
+        secureUrl: "https://ai-career-advisor.vercel.app/android-chrome-512x512.png"
       }
     ],
     locale: "en_US",
@@ -84,7 +86,7 @@ export const metadata: Metadata = {
     creator: "@aicareeradvisor",
     images: [
       {
-        url: "/ai-advisor-4.0.png",
+        url: "https://ai-career-advisor.vercel.app/ai-advisor-4.0.png",
         alt: "AI Career Advisor - Advanced AI-powered career guidance platform",
         width: 1200,
         height: 630
@@ -149,6 +151,28 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <StructuredData metadata={metadata} />
+        {/* Additional Social Media Meta Tags for better sharing */}
+        <meta property="og:image" content="https://ai-career-advisor.vercel.app/ai-advisor-4.0.png" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:image:alt" content="AI Career Advisor - Advanced AI-powered career guidance platform" />
+        <meta property="og:image:type" content="image/png" />
+        <meta property="og:image:secure_url" content="https://ai-career-advisor.vercel.app/ai-advisor-4.0.png" />
+
+        {/* Twitter Card specific */}
+        <meta name="twitter:image" content="https://ai-career-advisor.vercel.app/ai-advisor-4.0.png" />
+        <meta name="twitter:image:alt" content="AI Career Advisor - Advanced AI-powered career guidance platform" />
+
+        {/* LinkedIn specific */}
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+
+        {/* WhatsApp and general social sharing */}
+        <meta property="og:image" content="https://ai-career-advisor.vercel.app/ai-advisor-4.0.png" />
+        <meta property="og:image:secure_url" content="https://ai-career-advisor.vercel.app/ai-advisor-4.0.png" />
+
+        {/* Fallback for platforms that don't support Open Graph */}
+        <link rel="image_src" href="https://ai-career-advisor.vercel.app/ai-advisor-4.0.png" />
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
