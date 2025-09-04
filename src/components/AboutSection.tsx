@@ -12,21 +12,21 @@ const stats = [
 
 const teamMembers = [
   {
-    name: 'Arpit',
-    role: 'AI Research Lead',
-    description: 'B.Tech from IIT Delhi, specializing in machine learning and AI-powered career analytics with expertise in building intelligent recommendation systems.',
+    name: 'Arpit (IIT Delhi)',
+    role: 'AI Research and Product Manager',
+    description: 'Oversees product strategy and AI research direction, ensuring our career recommendation models align with user needs and market demands. Bridges technical development with product vision.',
     image: '👨‍💻'
   },
   {
-    name: 'Anubhav',
-    role: 'Backend Engineer',
-    description: 'B.Tech from IIT Mandi, expert in scalable backend systems and API development, ensuring robust and efficient platform performance.',
+    name: 'Anubhav (IIT Mandi)',
+    role: 'Full Stack Engineer',
+    description: 'Architects and implements the complete web platform with Next.js and Node.js, focusing on performance optimization and seamless user interactions across the stack.',
     image: '👨‍💼'
   },
   {
-    name: 'Akriti',
-    role: 'Frontend Developer',
-    description: 'B.Tech from IIT Mandi, passionate about creating beautiful and intuitive user experiences that make career planning accessible to everyone.',
+    name: 'Akriti (IIT Mandi)',
+    role: 'Data Scientist',
+    description: 'Designs and implements data pipelines and analysis frameworks, transforming raw career data into actionable insights and model training datasets.',
     image: '👩‍💻'
   }
 ];

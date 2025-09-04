@@ -2,22 +2,16 @@
 
 import { motion, AnimatePresence } from 'framer-motion';
 import { useState, useEffect } from 'react';
-import { Rocket, Sparkles, Target, TrendingUp, ChevronLeft, ChevronRight } from 'lucide-react';
+import { Rocket, Sparkles, Target, TrendingUp } from 'lucide-react';
 
 const heroImages = [
   '/ai-advisor-1.0.png',
   '/ai-advisor-2.0.png',
-  '/ai-advisor-3.0.png',
-  '/ai-advisor-4.0.png',
-  '/ai-advisor-5.0.png'
+  '/ai-advisor-3.0.png'
 ];
 
 export default function HeroSection() {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  const [isAutoPlaying, setIsAutoPlaying] = useState(true);
-  const [touchStart, setTouchStart] = useState(0);
-  const [touchEnd, setTouchEnd] = useState(0);
-  const [progress, setProgress] = useState(0);
 
   const floatingIcons = [
     { Icon: Rocket, delay: 0, x: 100, y: 50 },
@@ -26,92 +20,18 @@ export default function HeroSection() {
     { Icon: TrendingUp, delay: 1.5, x: -100, y: -40 },
   ];
 
-  // Touch handlers for mobile swipe
-  const handleTouchStart = (e: React.TouchEvent) => {
-    setTouchEnd(0);
-    setTouchStart(e.targetTouches[0].clientX);
-  };
-
-  const handleTouchMove = (e: React.TouchEvent) => {
-    setTouchEnd(e.targetTouches[0].clientX);
-  };
-
-  const handleTouchEnd = () => {
-    if (!touchStart || !touchEnd) return;
-
-    const distance = touchStart - touchEnd;
-    const isLeftSwipe = distance > 50;
-    const isRightSwipe = distance < -50;
-
-    if (isLeftSwipe) {
-      nextSlide();
-    }
-    if (isRightSwipe) {
-      prevSlide();
-    }
-  };
-
   useEffect(() => {
-    if (!isAutoPlaying) {
-      setProgress(0);
-      return;
-    }
-
     const interval = setInterval(() => {
       setCurrentImageIndex((prev) => (prev + 1) % heroImages.length);
     }, 5000);
 
-    const progressInterval = setInterval(() => {
-      setProgress((prev) => (prev + 1) % 100);
-    }, 50);
-
-    return () => {
-      clearInterval(interval);
-      clearInterval(progressInterval);
-    };
-  }, [isAutoPlaying, currentImageIndex]);
-
-  // Reset progress when slide changes
-  useEffect(() => {
-    setProgress(0);
-  }, [currentImageIndex]);
-
-  const goToSlide = (index: number) => {
-    setCurrentImageIndex(index);
-    setIsAutoPlaying(false);
-  };
-
-  const nextSlide = () => {
-    setCurrentImageIndex((prev) => (prev + 1) % heroImages.length);
-    setIsAutoPlaying(false);
-  };
-
-  const prevSlide = () => {
-    setCurrentImageIndex((prev) => (prev - 1 + heroImages.length) % heroImages.length);
-    setIsAutoPlaying(false);
-  };
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <section className="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden">
-      {/* Progress Bar */}
-      <div className="absolute top-0 left-0 right-0 z-30">
-        <div className="h-1 bg-black/20">
-          <motion.div
-            className="h-full bg-gradient-to-r from-purple-500 to-cyan-500"
-            initial={{ width: 0 }}
-            animate={{ width: isAutoPlaying ? `${progress}%` : '0%' }}
-            transition={{ duration: 0.05 }}
-          />
-        </div>
-      </div>
       {/* Background Image Carousel */}
-      <div
-        className="absolute inset-0 cursor-pointer hover:bg-black/5 transition-all duration-300"
-        onTouchStart={handleTouchStart}
-        onTouchMove={handleTouchMove}
-        onTouchEnd={handleTouchEnd}
-        title="Click or swipe to navigate images"
-      >
+      <div className="absolute inset-0">
         <AnimatePresence mode="wait">
           <motion.div
             key={currentImageIndex}
@@ -250,45 +170,6 @@ export default function HeroSection() {
             </motion.div>
           ))}
         </motion.div>
-
-        {/* Slider Navigation */}
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-30">
-          <div className="flex items-center space-x-6">
-            {/* Previous Button */}
-            <button
-              onClick={prevSlide}
-              className="w-12 h-12 rounded-full bg-black/30 backdrop-blur-md border border-white/20 text-white hover:bg-black/50 hover:border-white/40 transition-all duration-300 flex items-center justify-center group"
-              aria-label="Previous slide"
-            >
-              <ChevronLeft className="w-6 h-6 group-hover:scale-110 transition-transform duration-200" />
-            </button>
-
-            {/* Dot Indicators */}
-            <div className="flex space-x-3">
-              {heroImages.map((_, index) => (
-                <button
-                  key={index}
-                  onClick={() => goToSlide(index)}
-                  className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                    index === currentImageIndex
-                      ? 'bg-white scale-125 shadow-lg'
-                      : 'bg-white/50 hover:bg-white/75'
-                  }`}
-                  aria-label={`Go to slide ${index + 1}`}
-                />
-              ))}
-            </div>
-
-            {/* Next Button */}
-            <button
-              onClick={nextSlide}
-              className="w-12 h-12 rounded-full bg-black/30 backdrop-blur-md border border-white/20 text-white hover:bg-black/50 hover:border-white/40 transition-all duration-300 flex items-center justify-center group"
-              aria-label="Next slide"
-            >
-              <ChevronRight className="w-6 h-6 group-hover:scale-110 transition-transform duration-200" />
-            </button>
-          </div>
-        </div>
       </div>
     </section>
   );
