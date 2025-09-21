@@ -2,7 +2,7 @@
   "name": "nextgen-future-guide-ai",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://ai-career-advisor.vercel.app/",
+  "homepage": "https://ai-career-advisor-alpha.vercel.app/",
   "scripts": {
     "dev": "next dev",
     "build": "next build",

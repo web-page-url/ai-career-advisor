@@ -38,7 +38,7 @@ export const metadata: Metadata = {
   authors: [
     {
       name: "AI Career Advisor Team",
-      url: "https://ai-career-advisor.vercel.app/"
+      url: "https://ai-career-advisor-alpha.vercel.app/"
     }
   ],
   creator: "AI Career Advisor Team",
@@ -48,31 +48,31 @@ export const metadata: Metadata = {
     address: false,
     telephone: false,
   },
-  metadataBase: new URL("https://ai-career-advisor.vercel.app/"),
+  metadataBase: new URL("https://ai-career-advisor-alpha.vercel.app/"),
   alternates: {
-    canonical: "https://ai-career-advisor.vercel.app/",
+    canonical: "https://ai-career-advisor-alpha.vercel.app/",
   },
   openGraph: {
     title: "AI Career Advisor - Find Your Future Path 🚀",
     description: "Personalized AI-powered career guidance with roadmaps, skill analysis, and market insights. Discover your ideal career path today!",
-    url: "https://ai-career-advisor.vercel.app/",
+    url: "https://ai-career-advisor-alpha.vercel.app/",
     siteName: "AI Career Advisor",
     images: [
       {
-        url: "https://ai-career-advisor.vercel.app/ai-advisor-4.0.png",
+        url: "https://ai-career-advisor-alpha.vercel.app/ai-advisor-4.0.png",
         width: 1200,
         height: 630,
         alt: "AI Career Advisor - Advanced AI-powered career guidance platform",
         type: "image/png",
-        secureUrl: "https://ai-career-advisor.vercel.app/ai-advisor-4.0.png"
+        secureUrl: "https://ai-career-advisor-alpha.vercel.app/ai-advisor-4.0.png"
       },
       {
-        url: "https://ai-career-advisor.vercel.app/android-chrome-512x512.png",
+        url: "https://ai-career-advisor-alpha.vercel.app/android-chrome-512x512.png",
         width: 512,
         height: 512,
         alt: "AI Career Advisor Logo",
         type: "image/png",
-        secureUrl: "https://ai-career-advisor.vercel.app/android-chrome-512x512.png"
+        secureUrl: "https://ai-career-advisor-alpha.vercel.app/android-chrome-512x512.png"
       }
     ],
     locale: "en_US",
@@ -86,7 +86,7 @@ export const metadata: Metadata = {
     creator: "@aicareeradvisor",
     images: [
       {
-        url: "https://ai-career-advisor.vercel.app/ai-advisor-4.0.png",
+        url: "https://ai-career-advisor-alpha.vercel.app/ai-advisor-4.0.png",
         alt: "AI Career Advisor - Advanced AI-powered career guidance platform",
         width: 1200,
         height: 630
@@ -176,15 +176,15 @@ export default function RootLayout({
         <meta name="msapplication-TileImage" content="/favicon-128x128.png" />
 
         {/* Additional Social Media Meta Tags for better sharing */}
-        <meta property="og:image" content="https://ai-career-advisor.vercel.app/ai-advisor-4.0.png" />
+        <meta property="og:image" content="https://ai-career-advisor-alpha.vercel.app/ai-advisor-4.0.png" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <meta property="og:image:alt" content="AI Career Advisor - Advanced AI-powered career guidance platform" />
         <meta property="og:image:type" content="image/png" />
-        <meta property="og:image:secure_url" content="https://ai-career-advisor.vercel.app/ai-advisor-4.0.png" />
+        <meta property="og:image:secure_url" content="https://ai-career-advisor-alpha.vercel.app/ai-advisor-4.0.png" />
 
         {/* Twitter Card specific */}
-        <meta name="twitter:image" content="https://ai-career-advisor.vercel.app/ai-advisor-4.0.png" />
+        <meta name="twitter:image" content="https://ai-career-advisor-alpha.vercel.app/ai-advisor-4.0.png" />
         <meta name="twitter:image:alt" content="AI Career Advisor - Advanced AI-powered career guidance platform" />
 
         {/* LinkedIn specific */}
@@ -192,11 +192,11 @@ export default function RootLayout({
         <meta property="og:image:height" content="630" />
 
         {/* WhatsApp and general social sharing */}
-        <meta property="og:image" content="https://ai-career-advisor.vercel.app/ai-advisor-4.0.png" />
-        <meta property="og:image:secure_url" content="https://ai-career-advisor.vercel.app/ai-advisor-4.0.png" />
+        <meta property="og:image" content="https://ai-career-advisor-alpha.vercel.app/ai-advisor-4.0.png" />
+        <meta property="og:image:secure_url" content="https://ai-career-advisor-alpha.vercel.app/ai-advisor-4.0.png" />
 
         {/* Fallback for platforms that don't support Open Graph */}
-        <link rel="image_src" href="https://ai-career-advisor.vercel.app/ai-advisor-4.0.png" />
+        <link rel="image_src" href="https://ai-career-advisor-alpha.vercel.app/ai-advisor-4.0.png" />
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}

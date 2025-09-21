@@ -9,7 +9,7 @@
       <TileColor>#0a0a0a</TileColor>
     </tile>
     <notification>
-      <polling-uri src="https://ai-career-advisor.vercel.app/notifications.xml"/>
+      <polling-uri src="https://ai-career-advisor-alpha.vercel.app/notifications.xml"/>
       <frequency>30</frequency>
       <cycle>1</cycle>
     </notification>

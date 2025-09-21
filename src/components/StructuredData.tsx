@@ -10,7 +10,7 @@ export default function StructuredData({ metadata }: StructuredDataProps) {
     "@type": "WebApplication",
     "name": "AI Career Advisor",
     "description": metadata.description,
-    "url": "https://ai-career-advisor.vercel.app/",
+    "url": "https://ai-career-advisor-alpha.vercel.app/",
     "applicationCategory": "BusinessApplication",
     "operatingSystem": "Web Browser",
     "offers": {
@@ -21,36 +21,36 @@ export default function StructuredData({ metadata }: StructuredDataProps) {
     "creator": {
       "@type": "Organization",
       "name": "AI Career Advisor Team",
-      "url": "https://ai-career-advisor.vercel.app/"
+      "url": "https://ai-career-advisor-alpha.vercel.app/"
     },
     "publisher": {
       "@type": "Organization",
       "name": "AI Career Advisor",
       "logo": {
         "@type": "ImageObject",
-        "url": "https://ai-career-advisor.vercel.app/android-chrome-512x512.png"
+        "url": "https://ai-career-advisor-alpha.vercel.app/android-chrome-512x512.png"
       }
     },
     "image": {
       "@type": "ImageObject",
-      "url": "https://ai-career-advisor.vercel.app/ai-advisor-4.0.png",
+      "url": "https://ai-career-advisor-alpha.vercel.app/ai-advisor-4.0.png",
       "width": 1200,
       "height": 630
     },
     "screenshot": [
       {
         "@type": "ImageObject",
-        "url": "https://ai-career-advisor.vercel.app/ai-advisor-1.0.png",
+        "url": "https://ai-career-advisor-alpha.vercel.app/ai-advisor-1.0.png",
         "caption": "AI Career Advisor - Career Analysis Interface"
       },
       {
         "@type": "ImageObject",
-        "url": "https://ai-career-advisor.vercel.app/ai-advisor-2.0.png",
+        "url": "https://ai-career-advisor-alpha.vercel.app/ai-advisor-2.0.png",
         "caption": "AI Career Advisor - Roadmap Generation"
       },
       {
         "@type": "ImageObject",
-        "url": "https://ai-career-advisor.vercel.app/ai-advisor-3.0.png",
+        "url": "https://ai-career-advisor-alpha.vercel.app/ai-advisor-3.0.png",
         "caption": "AI Career Advisor - Market Insights"
       }
     ],
@@ -72,11 +72,11 @@ export default function StructuredData({ metadata }: StructuredDataProps) {
     "applicationSubCategory": "Career Guidance",
     "softwareVersion": "1.0",
     "fileSize": "Web Application",
-    "downloadUrl": "https://ai-career-advisor.vercel.app/",
+    "downloadUrl": "https://ai-career-advisor-alpha.vercel.app/",
     "isAccessibleForFree": true,
     "potentialAction": {
       "@type": "UseAction",
-      "target": "https://ai-career-advisor.vercel.app/#input-form",
+      "target": "https://ai-career-advisor-alpha.vercel.app/#input-form",
       "description": "Start your career analysis"
     }
   };
@@ -85,10 +85,10 @@ export default function StructuredData({ metadata }: StructuredDataProps) {
     "@context": "https://schema.org",
     "@type": "Organization",
     "name": "AI Career Advisor",
-    "url": "https://ai-career-advisor.vercel.app/",
+    "url": "https://ai-career-advisor-alpha.vercel.app/",
     "logo": {
       "@type": "ImageObject",
-      "url": "https://ai-career-advisor.vercel.app/android-chrome-512x512.png",
+      "url": "https://ai-career-advisor-alpha.vercel.app/android-chrome-512x512.png",
       "width": 512,
       "height": 512
     },
@@ -111,7 +111,7 @@ export default function StructuredData({ metadata }: StructuredDataProps) {
     "@context": "https://schema.org",
     "@type": "WebSite",
     "name": "AI Career Advisor",
-    "url": "https://ai-career-advisor.vercel.app/",
+    "url": "https://ai-career-advisor-alpha.vercel.app/",
     "description": metadata.description,
     "inLanguage": "en-US",
     "copyrightHolder": {
@@ -120,7 +120,7 @@ export default function StructuredData({ metadata }: StructuredDataProps) {
     },
     "potentialAction": {
       "@type": "SearchAction",
-      "target": "https://ai-career-advisor.vercel.app/search?q={search_term_string}",
+      "target": "https://ai-career-advisor-alpha.vercel.app/search?q={search_term_string}",
       "query-input": "required name=search_term_string"
     }
   };
